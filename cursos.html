@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos1</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos_cursos.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.check').click(function(){
+            var text="";
+            $('.check:checked').each(function(){
+                text+=$(this).val()+ '\n';
+            });
+            text=text.substring(0,text.length-1);
+            $("#area").val(text);
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="titulo">
+            <span>Lista de cursos</span>
+        </div>
+        <div class="borde" name=>
+            <div class="caja-texto">
+                <input type="checkbox" value="Java" class="check">Java
+            </div>
+            <div class="caja-texto">
+                <input type="checkbox" value="HTML" class="check">HTML
+            </div>
+            <div class="caja-texto">
+                <input type="checkbox" value="JavaScript" class="check">JavaScript
+            </div>
+            <div class="caja-texto">
+                <input type="checkbox" value="Base de Datos" class="check">Base de Datos
+            </div>
+            <div class="caja-texto">
+                <input type="checkbox" value="Diseño de Sistemas" class="check">Diseño de Sistemas
+            </div>
+            <div class="seleccionados">
+                <span>Cursos seleccionados: </span>
+            </div>
+            <div class="textarea">
+                <textarea name="area" id="area" rows="6" cols="25"></textarea>
+            </div>
+        </div>
+        <div class="salir">
+            <a href="index.html">Salir</a>
+        </div>
+    </div>
+</body>
+</html>

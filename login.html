@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <script>
+        function getValueRadioActivado() { 
+            var pulsado = false; 
+            var opciones = document.f1.rdsexo; 
+            for (i = 0; i < opciones.length; i++) { 
+                if (opciones[i].checked == true) {
+                    pulsado = true; 
+                } 
+            } return pulsado; 
+        }  
+        function getValueChekActivado() {
+            var pulsado = false; 
+            var opciones = document.f1.chkdep; 
+            for (i = 0; i < opciones.length; i++) { 
+                if (opciones[i].checked == true) { 
+                    pulsado = true; 
+                } 
+            } return pulsado; 
+        } 
+        function validar() { 
+            var n = document.f1.nom.value; 
+            var s = document.f1.sis.value; 
+            var d = document.f1.chkdep.value;
+            if (n== "") { 
+                alert('Ingrese nombre'); 
+                return false; 
+            } else if (s == "") { 
+                alert('Seleccione:\nTu sistema favorito');
+                 return false; 
+            } 
+            else if (!getValueChekActivado()) { 
+                alert("Elige tu deporte favorito para que el formulario pueda ser enviado "+d); 
+                return false; 
+            } else if (!getValueRadioActivado()) { 
+                alert("Elige una opción de sexo para que el formulario pueda ser enviado"); 
+                return false; 
+            } return true; 
+        } 
+    </script>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="titulo">
+            <span>LOGIN</span>
+        </div>
+        <form name="f1" action="" method="post" onsubmit="return validar();">
+            <div class="caja-texto">
+                <div class="texto">
+                    <span class="info">Nombre: </span>
+                </div>
+                <div class="ingreso">
+                    <input type="text" size="15" maxiength="30" placeholder="nombre" name="nom" autocomplete="off" class="nombre">
+                </div>
+            </div>
+            <div class="caja-texto">
+                <div class="texto">
+                    <span>Sistema favorito: </span>
+                </div>
+                <div class="ingreso">
+                    <select>
+                        <option value="-1">Seleccione</option> 
+                        <option value="1">Linux</option> 
+                        <option value="2">Windows</option> 
+                        <option value="3">Mac</option>
+                    </select>
+                </div>
+            </div>
+            <div class="caja-texto">
+                <div class="texto">
+                    <span>Deporte favorito: </span>
+                </div>
+                <div class="ingreso">
+                    <input type="checkbox" name="check" value="Futbol"> Futbol 
+                    <input type="checkbox" name="check" value="Futbol"> Voley 
+                    <input type="checkbox" name="check" value="Ciclismo"> Ciclismo 
+                    <input type="checkbox" name="check" value="Karate"> Karate
+                </div>
+            </div>
+            <div class="caja-texto">
+                <div class="texto">
+                    <span>Sexo: </span>
+                </div>
+                <div class="ingreso">
+                    <input type="radio" name="rdsexo"> Hombre
+                    <input type="radio" name="rdsexo"> Mujer
+                </div>
+            </div>
+            <div class="caja-texto">
+                <div class="texto">
+                    <span>Aficiones: </span>
+                </div>
+                <div class="ingreso">
+                    <textarea name="txta" class="textarea"> </textarea> 
+                </div>
+            </div>
+            <div class="botones">
+                <input type="submit" value="Enviar Datos" class="enviar"> 
+                <input type="submit" value="Restablecer" class="restablecer">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
